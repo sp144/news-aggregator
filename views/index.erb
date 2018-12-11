@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sinatra Template</title>
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <script src="/javascripts/app.js"></script>
+</head>
+<body>
+
+  <% if @error_msg %>
+    <h3>Error! <%= @error_msg %></h3>
+  <% end %>
+
+  <h1>Slacker Articles Inc.</h1>
+    <% @articles.each do |row| %>
+
+      <a href="<%= "#{row["url"]}" %>"> <%= "#{row["title"]}" %> </a>
+      <p> <%= "#{row["description"]}" %> </p><br>
+    <% end %>
+
+    <br>
+
+    <a href="articles/new">Add an Article</a>
+
+</body>
+</html>
